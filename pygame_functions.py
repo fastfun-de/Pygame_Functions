@@ -285,7 +285,7 @@ def loadImage(fileName, useColorKey=False):
         raise Exception("Error loading image: " + fileName + " - Check filename and path?")
 
 
-def screenSize(sizex, sizey, xpos=None, ypos=None, fullscreen=False):
+def screenSize(sizex, sizey, xpos=None, ypos=None, fullscreen=False, title="Graphics Window"):
     global screen
     global background
     if xpos != None and ypos != None:
@@ -301,7 +301,7 @@ def screenSize(sizex, sizey, xpos=None, ypos=None, fullscreen=False):
         screen = pygame.display.set_mode([sizex, sizey])
     background = Background()
     screen.fill(background.colour)
-    pygame.display.set_caption("Graphics Window")
+    pygame.display.set_caption(title)
     background.surface = screen.copy()
     pygame.display.update()
     return screen
